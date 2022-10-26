@@ -1,17 +1,18 @@
 FROM golang:1.19.2
-
-ENV GO111MODULE=on
-WORKDIR /go/src/app
-
-COPY go.mod .
-# COPY go.sum .
+# ENV GO111MODULE=on
+WORKDIR /app
 
 RUN go install github.com/cosmtrek/air@latest
 
+COPY go.mod .
+# COPY go.sum .
 RUN go mod download
 
-COPY . .
+# COPY . .
 
-RUN go build 
+# RUN go build 
+
+# CMD ["air", "-c", ".air.toml"]
 
 # CMD air
+# ENTRYPOINT ["air"]
