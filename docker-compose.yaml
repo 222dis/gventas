@@ -16,6 +16,8 @@ services:
       MYSQL_DATABASE: test_db
       MYSQL_USER: docker
       MYSQL_PASSWORD: docker
+    #networks:
+    #  - gventas_default
   app:
     build:
       context: "./app"
@@ -26,5 +28,8 @@ services:
       - "./app:/app"
     ports:
       - "8801:8080"
+    #networks:
+    #  - gventas_default
     depends_on:
       - db
+  
